@@ -62,7 +62,7 @@ def make_admin():
 	if request.method == 'GET':
 		return render_template('make.html', success= '')
 	else:
-		if request.form['upass'] == 'Bangalore12E':
+		if request.form['upass'] == aditya.authenticate():
 			user = User(request.form['username'], request.form['password'], True)
 			db.session.add(user)
 			db.session.commit()
