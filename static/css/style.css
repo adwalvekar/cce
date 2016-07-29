@@ -1,0 +1,120 @@
+@font-face {
+	font-family:'haptik';
+	src: url(GTHaptik-Medium.woff2);
+}
+@font-face {
+	font-family:'haptikLight';
+	src: url(GT-Haptik-Lazer.woff);
+}
+@font-face {
+	font-family:'haptikThin';
+	src: url(GT-Haptik-Thin.woff);
+}
+html,body{
+	font-family: 'haptik'
+}
+.fail{
+	background-color: #D91E18 ;
+	width: 100vw;
+}
+.sanmarino{
+	background-color: #22313F ;
+	width: 100vw;
+}
+.success{
+	background-color: #1E824C ;
+	width: 100vw;
+}
+.emailBox{
+	font-family: 'haptik';
+	font-weight: 300;
+	width: 90vw;
+	height: 5vh;
+	border: none;
+	border-bottom: 1px solid #AAAAAA;
+	background: none;
+	font-size: 4vh;
+	color: #CCCCCC;
+	text-align: center;
+}
+.emailButton{
+	width: 15vw;
+	height: 7vh;
+	display: block;
+	border: none;
+	margin-top: 1vh;
+	background-color: #446CB3;
+	font-weight: 400;
+	font-size: 24px;
+	color: #CCCCCC;
+	outline: none;
+	align-self: center;
+	text-align: center;
+	margin-left: 37.5vw;
+}
+.emailBox:focus{
+	outline: none;
+}
+.spacer{
+	margin-top: 1vh; 
+	margin-left: 36vw;
+}
+.card{
+	width: 90vw;
+	height : 30vh;
+	position: absolute;
+	margin: auto;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+}
+::-webkit-input-placeholder {
+   text-align: center;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+   text-align: center;  
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+   text-align: center;  
+}
+
+:-ms-input-placeholder {  
+   text-align: center; 
+}
+@media only screen and (max-width:436px){
+.emailButton{
+	width: 30vh;
+	height: 15vw;
+	display: block;
+	border: none;
+	margin-top: 1vh;
+	background-color: #446CB3;
+	font-weight: 400;
+	font-size: 24px;
+	color: #CCCCCC;
+	outline: none;
+	align-self: center;
+	text-align: center;
+	margin-left: 20vw;
+	outline: none;
+}
+.spacer{
+	margin-top: 1vh; 
+	margin-left: 12.5vw;
+}
+.emailBox{
+	font-family: 'haptik';
+	font-weight: 300;
+	width: 90vw;
+	height: 5vh;
+	border: none;
+	border-bottom: 1px solid #AAAAAA;
+	background: none;
+	font-size: 3vh;
+	color: #CCCCCC;
+	text-align: center;
+}
+}

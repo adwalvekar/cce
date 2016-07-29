@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Add Email | CCE B</title>
+	<link rel="stylesheet" type="text/css" href="/static/css/style.css">
+	<script src='https://www.google.com/recaptcha/api.js'></script>
+
+</head>
+  	{% if success %}   
+    <body class="success">
+	{% endif %}
+	{% if normal %}   
+    <body class="sanmarino">
+	{% endif %}
+	{% if fail %}   
+    <body class="fail">
+	{% endif %}
+		<div class="card">
+			<form method="POST" action="/add/email" id = "addemail">
+			<input class="emailBox" type="email" name="email" placeholder="Add your email to receive updates" required="True">
+			<div class="spacer"><div class="g-recaptcha" data-sitekey="6LdOHSYTAAAAAHZS50FCWW2xczTvmV-TwSHceOV9" data-theme= 'dark'></div></div>
+			<input class="emailButton" type="submit" name="submit">
+		</form>
+		</div>
+	</body>
+</html>
