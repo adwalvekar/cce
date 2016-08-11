@@ -37,6 +37,20 @@ html,body{
 	color: #CCCCCC;
 	text-align: center;
 }
+.loginBox{
+	font-family: 'haptik';
+	font-weight: 300;
+	width: 30vw;
+	height: 5vh;
+	left: 0;
+	right: 0;
+	border: none;
+	border-bottom: 1px solid #AAAAAA;
+	background: none;
+	font-size: 4vh;
+	color: #CCCCCC;
+	text-align: center;
+}
 .emailButton{
 	width: 15vw;
 	height: 7vh;
@@ -52,6 +66,24 @@ html,body{
 	text-align: center;
 	margin-left: 37.5vw;
 }
+.loginButton{
+	width: 15vw;
+	height: 7vh;
+	display: block;
+	border: none;
+	margin-top: 1vh;
+	background-color: #446CB3;
+	font-weight: 400;
+	font-size: 24px;
+	color: #CCCCCC;
+	outline: none;
+	align-self: center;
+	text-align: center;
+	margin-left: 7.5vw;
+}
+.loginBox:focus{
+	outline: none;
+}
 .emailBox:focus{
 	outline: none;
 }
@@ -61,6 +93,16 @@ html,body{
 }
 .card{
 	width: 90vw;
+	height : 30vh;
+	position: absolute;
+	margin: auto;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+}
+.card2{
+	width: 30vw;
 	height : 30vh;
 	position: absolute;
 	margin: auto;

@@ -1,0 +1,13 @@
+{
+	"admin_password":"Bangalore12E",
+	"mail_server":"smtp.gmail.com",
+	"port":587,
+	"username":"aditya.s.walvekar@gmail.com",
+	"password":"Bangalore12E",
+	"SSL":true,
+	"captcha_site_key":"6LdOHSYTAAAAAHZS50FCWW2xczTvmV-TwSHceOV9",
+	"captcha_secret_key":"6LdOHSYTAAAAAJGsn5CvJYaE8Rw10_2E6jeGSMWP",
+	"db_uri":"mysql://root:Bangalore12E@localhost/cce",
+	"site_secret":"&T46ajx!cV$233A3AzR58:8'%6G1Ku",
+	"dev":true
+}

@@ -1,24 +1,23 @@
-from flask import Flask, render_template, url_for, abort, request
+from flask import Flask, render_template, url_for, abort, request,session, redirect
 from flask_sqlalchemy import SQLAlchemy 
 import json
 import urllib2
-import pprint
 from flask_mail import Mail, Message
 #App Definition
-with open('./config.json') as c:
-	config = json.load(c)
 app = Flask(__name__)
+app.debug=True
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS']=True
-app.config['MAIL_SERVER'] = config['mail_server']
-app.config['MAIL_PORT'] = config['port']
-app.config['MAIL_USE_SSL'] = config['SSL']
-app.config['MAIL_USERNAME'] = config['username']
-app.config['MAIL_PASSWORD'] = config['password']
+app.config['MAIL_SERVER'] = 'smtp.gmail.com'
+app.config['MAIL_PORT'] = 465
+app.config['MAIL_USE_SSL'] = True
+app.config['MAIL_USERNAME'] = "ccemanipal@gmail.com"
+app.config['MAIL_PASSWORD'] = "Bangalore12E"
+app.secret_key = "&T46ajx!cV$233A3AzR58:8aasG1Ku"
 db = SQLAlchemy(app)
 mail = Mail(app)
-app.config['SQLALCHEMY_DATABASE_URI'] = config['db_uri']
-SITE_KEY = config['captcha_site_key']
-SECRET_KEY= config['captcha_secret_key']
+app.config['SQLALCHEMY_DATABASE_URI'] = "mysql://root:Bangalore12E@localhost/cce"
+SITE_KEY = '6LdOHSYTAAAAAHZS50FCWW2xczTvmV-TwSHceOV9'
+SECRET_KEY= "6LdOHSYTAAAAAJGsn5CvJYaE8Rw10_2E6jeGSMWP"
 def slugify(title):
 	s= title
 	s.replace(" ", "-")
@@ -87,7 +86,7 @@ def make_admin():
 	if request.method == 'GET':
 		return render_template('make.html', success= '')
 	else:
-		if request.form['upass'] == config['admin_password']:
+		if request.form['upass'] == 'Bangalore12E':
 			user = User(request.form['username'], request.form['password'], True)
 			db.session.add(user)
 			db.session.commit()
@@ -95,12 +94,14 @@ def make_admin():
 		else:
 			abort(401)
 @app.route('/add/post', methods= ['POST','GET'])
-def make_post():
+def add_post():
 	if request.method == 'POST':
 		pass
-	else :
-		return render_template('post.html')
-	pass
+	elif request.method == 'GET' :
+		try:
+			return render_template('post.html', username = session['username'])
+		except KeyError:
+			return redirect(url_for('login'))
 @app.route('/add/email', methods=['POST', 'GET'])
 def add_mail():
 	if request.method == "POST":
@@ -120,8 +121,34 @@ def viewemail():
 	for x in a:
 		ab.append(x.email)
 	return str(ab)
+@app.route('/login', methods= ['POST','GET'])
+def login():
+	if request.method == 'GET':
+		try:
+			if session['username'] is not None:
+				return redirect(url_for('add_post'))
+		except KeyError:
+			return render_template('login.html')
+	elif request.method == 'POST':
+		user = User.query.filter_by(username = request.form['username']).first()
+		if user.password == request.form['password']:
+			session['username'] = request.form['username']
+			return redirect(url_for('add_post'))
+@app.route('/send/email')
+def send_email():
+	msg = Message("Hello",
+                  sender="ccemanipal@gmail.com",
+                  recipients=["aditya.s.walvekar@gmail.com"])
+	msg.body = "testing"
+	mail.send(msg)
+	return "sent"
+
+	
 #Create DB
 db.create_all()
 #Run
 if __name__=='__main__':
-	app.run(debug = True)
+	app.run()
+@app.teardown_appcontext
+def teardown_db(exception):
+    db.close()
