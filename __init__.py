@@ -10,14 +10,14 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS']=True
 app.config['MAIL_SERVER'] = 'smtp.gmail.com'
 app.config['MAIL_PORT'] = 465
 app.config['MAIL_USE_SSL'] = True
-app.config['MAIL_USERNAME'] = "ccemanipal@gmail.com"
-app.config['MAIL_PASSWORD'] = "Bangalore12E"
-app.secret_key = "&T46ajx!cV$233A3AzR58:8aasG1Ku"
+app.config['MAIL_USERNAME'] = "somemail@gmail.com"
+app.config['MAIL_PASSWORD'] = "yournoobpassword"
+app.secret_key = "Some random String"
 db = SQLAlchemy(app)
 mail = Mail(app)
-app.config['SQLALCHEMY_DATABASE_URI'] = "mysql://root:Bangalore12E@localhost/cce"
-SITE_KEY = '6LdOHSYTAAAAAHZS50FCWW2xczTvmV-TwSHceOV9'
-SECRET_KEY= "6LdOHSYTAAAAAJGsn5CvJYaE8Rw10_2E6jeGSMWP"
+app.config['SQLALCHEMY_DATABASE_URI'] = "mysql://username:password@server/db"
+SITE_KEY = 'Your Site key'
+SECRET_KEY= "Your secret key"
 def slugify(title):
 	s= title
 	s.replace(" ", "-")
